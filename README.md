@@ -1,2 +1,685 @@
-# mageshwaran
-Certificate Repository
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S J Mageshwaran | Certificate Repository</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --neon-blue: #00f7ff;
+            --neon-pink: #ff00ea;
+            --neon-purple: #bd00ff;
+            --dark-bg: #0a0a1a;
+            --darker-bg: #050510;
+            --card-bg: rgba(20, 20, 40, 0.7);
+        }
+
+        body {
+            font-family: 'Rajdhani', 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, var(--darker-bg), var(--dark-bg));
+            color: #e0e0ff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+            padding-bottom: 80px;
+        }
+
+        /* Scanlines Effect */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 100;
+            opacity: 0.4;
+        }
+
+        /* Grid Background */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(10, 10, 30, 0.8) 50%, transparent 50%),
+                linear-gradient(90deg, rgba(10, 10, 30, 0.8) 50%, transparent 50%);
+            background-size: 30px 30px;
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 2rem 1rem;
+            position: relative;
+            overflow: hidden;
+            background: rgba(10, 10, 30, 0.8);
+            border-bottom: 1px solid rgba(0, 247, 255, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .cyberpunk-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            position: relative;
+            text-shadow: 
+                0 0 5px var(--neon-blue),
+                0 0 10px var(--neon-blue),
+                0 0 20px var(--neon-purple),
+                0 0 40px var(--neon-purple);
+            animation: flicker 1.5s infinite alternate;
+            margin-top: 1rem;
+        }
+
+        .cyberpunk-subtext {
+            font-size: 1.2rem;
+            color: #a0a0ff;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+        }
+
+        .neon-border {
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--neon-blue), var(--neon-pink), var(--neon-blue), transparent);
+            margin: 0 auto 2rem;
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        /* Animation Effects */
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 
+                    0 0 5px var(--neon-blue),
+                    0 0 10px var(--neon-blue),
+                    0 0 20px var(--neon-purple),
+                    0 0 40px var(--neon-purple);
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+            }
+            50% {
+                box-shadow: 0 0 20px var(--neon-blue), 0 0 30px var(--neon-purple);
+            }
+            100% {
+                box-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+            }
+        }
+
+        @keyframes textBoom {
+            0% {
+                transform: scale(1);
+                text-shadow: 0 0 5px var(--neon-blue);
+            }
+            50% {
+                transform: scale(1.1);
+                text-shadow: 0 0 20px var(--neon-pink), 0 0 30px var(--neon-blue);
+            }
+            100% {
+                transform: scale(1);
+                text-shadow: 0 0 5px var(--neon-blue);
+            }
+        }
+
+        /* Scrolling Animation Bar */
+        .scrolling-bar {
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue), var(--neon-pink));
+            height: 4px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            margin: 1rem 0;
+            box-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        .scrolling-bar::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            animation: scroll 15s linear infinite;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            animation: textBoom 3s infinite;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+        }
+
+        /* Certificate Grid */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .cert-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: pulse 3s infinite;
+            cursor: pointer;
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 0 20px rgba(0, 247, 255, 0.5);
+        }
+
+        .cert-card:active {
+            transform: translateY(-5px) scale(0.98);
+        }
+
+        .cert-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cert-image img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .cert-card:hover .cert-image img {
+            transform: scale(1.05);
+        }
+
+        .cert-info {
+            padding: 1.5rem;
+        }
+
+        .cert-title {
+            font-size: 1.2rem;
+            color: var(--neon-pink);
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover .cert-title {
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        .cert-category {
+            color: var(--neon-blue);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            color: var(--dark-bg);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-purple));
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--neon-pink);
+        }
+
+        .download-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Song Section */
+        .song-section {
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .video-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 3px solid var(--neon-blue);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 247, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .video-container:hover {
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 30px rgba(255, 0, 234, 0.7);
+            transform: translateY(-5px);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 450px;
+            display: block;
+        }
+
+        .video-title {
+            margin-top: 1rem;
+            font-size: 1.5rem;
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px rgba(255, 0, 234, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(0, 247, 255, 0.2);
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(10, 10, 30, 0.9);
+            z-index: 10;
+        }
+
+        .copyright {
+            color: #a0a0ff;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* Digital Clock */
+        .digital-clock {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            text-align: center;
+            margin: 1rem 0;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            border: 1px solid var(--neon-blue);
+            box-shadow: 0 0 10px var(--neon-blue);
+            color: var(--neon-blue);
+            text-shadow: 0 0 5px var(--neon-blue);
+            animation: pulse 2s infinite;
+        }
+
+        /* Scroll Animation */
+        @keyframes scrollReveal {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-animate {
+            animation: scrollReveal 0.8s ease forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .cyberpunk-text {
+                font-size: 2.5rem;
+            }
+            
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-container iframe {
+                height: 250px;
+            }
+            
+            .digital-clock {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Matrix Rain Effect */
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Matrix rain effect -->
+    <canvas class="matrix-rain" id="matrixCanvas"></canvas>
+    
+    <header>
+        <div class="scrolling-bar"></div>
+        <h1 class="cyberpunk-text">S J Mageshwaran</h1>
+        <p class="cyberpunk-subtext">Certificate Repository</p>
+        <div class="digital-clock" id="digitalClock">00:00:00</div>
+        <div class="neon-border"></div>
+        <div class="scrolling-bar"></div>
+    </header>
+
+    <div class="container">
+        <!-- ITI Certificate Section -->
+        <section class="cert-section">
+            <h2 class="section-title">ITI Certificate</h2>
+            <div class="cert-grid">
+                <div class="cert-card scroll-animate">
+                    <div class="cert-image">
+                        <img src="https://i.ibb.co/9zLMyZP/IMG-20250710-173816.jpg" alt="ITI MMV Certificate">
+                    </div>
+                    <div class="cert-info">
+                        <h3 class="cert-title">ITI MMV Certificate</h3>
+                        <p class="cert-category">ITI Certification</p>
+                        <a href="https://i.ibb.co/9zLMyZP/IMG-20250710-173816.jpg" download class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Money Management Certificates -->
+        <section class="cert-section">
+            <h2 class="section-title">Money Management Certificates</h2>
+            <div class="cert-grid">
+                <div class="cert-card scroll-animate">
+                    <div class="cert-image">
+                        <img src="https://i.ibb.co/FbZcfpkr/IMG-20250710-173907-1.jpg" alt="Money Management Certificate 1">
+                    </div>
+                    <div class="cert-info">
+                        <h3 class="cert-title">Financial Management</h3>
+                        <p class="cert-category">Money Management</p>
+                        <a href="https://i.ibb.co/FbZcfpkr/IMG-20250710-173907-1.jpg" download class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+                </div>
+                <div class="cert-card scroll-animate">
+                    <div class="cert-image">
+                        <img src="https://i.ibb.co/CpCK86QK/IMG-20250710-173938-1.jpg" alt="Money Management Certificate 2">
+                    </div>
+                    <div class="cert-info">
+                        <h3 class="cert-title">Investment Strategies</h3>
+                        <p class="cert-category">Money Management</p>
+                        <a href="https://i.ibb.co/CpCK86QK/IMG-20250710-173938-1.jpg" download class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Computer Certificates -->
+        <section class="cert-section">
+            <h2 class="section-title">Computer Certificates</h2>
+            <div class="cert-grid">
+                <div class="cert-card scroll-animate">
+                    <div class="cert-image">
+                        <img src="https://i.ibb.co/4ZHrvT33/IMG-20250710-174021-1.jpg" alt="C Programming Certificate">
+                    </div>
+                    <div class="cert-info">
+                        <h3 class="cert-title">C Programming</h3>
+                        <p class="cert-category">Computer Technology</p>
+                        <a href="https://i.ibb.co/4ZHrvT33/IMG-20250710-174021-1.jpg" download class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+                </div>
+                <div class="cert-card scroll-animate">
+                    <div class="cert-image">
+                        <img src="https://i.ibb.co/7xsDHPyg/IMG-20250710-174040-1.jpg" alt="Programming Techniques Certificate">
+                    </div>
+                    <div class="cert-info">
+                        <h3 class="cert-title">Programming Techniques</h3>
+                        <p class="cert-category">Computer Technology</p>
+                        <a href="https://i.ibb.co/7xsDHPyg/IMG-20250710-174040-1.jpg" download class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+                </div>
+                <div class="cert-card scroll-animate">
+                    <div class="cert-image">
+                        <img src="https://i.ibb.co/Kzs5ZHWm/IMG-20250710-174314.jpg" alt="C++ Programming Certificate">
+                    </div>
+                    <div class="cert-info">
+                        <h3 class="cert-title">C++ Programming</h3>
+                        <p class="cert-category">Computer Technology</p>
+                        <a href="https://i.ibb.co/Kzs5ZHWm/IMG-20250710-174314.jpg" download class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+                </div>
+                <div class="cert-card scroll-animate">
+                    <div class="cert-image">
+                        <img src="https://i.ibb.co/LzVsp4cd/IMG-20250710-174340.jpg" alt="Office Automation Certificate">
+                    </div>
+                    <div class="cert-info">
+                        <h3 class="cert-title">Office Automation</h3>
+                        <p class="cert-category">Computer Technology</p>
+                        <a href="https://i.ibb.co/LzVsp4cd/IMG-20250710-174340.jpg" download class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+                </div>
+                <div class="cert-card scroll-animate">
+                    <div class="cert-image">
+                        <img src="https://i.ibb.co/zVsp8ShR/IMG-20250710-174433.jpg" alt="C+ Certificate">
+                    </div>
+                    <div class="cert-info">
+                        <h3 class="cert-title">C+ Programming</h3>
+                        <p class="cert-category">Computer Technology</p>
+                        <a href="https://i.ibb.co/zVsp8ShR/IMG-20250710-174433.jpg" download class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Favorite Song -->
+        <section class="song-section">
+            <h2 class="section-title">Favorite Song</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/McTvummBHt0?list=RDMcTvummBHt0" title="Vaathi Raid" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <p class="video-title">Vaathi Raid - Master</p>
+        </section>
+    </div>
+
+    <footer>
+        <p class="copyright">© 2025 S J Mageshwaran | Certificate Repository</p>
+    </footer>
+
+    <script>
+        // Digital Clock
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            
+            document.getElementById('digitalClock').textContent = 
+                `${hours}:${minutes}:${seconds}`;
+        }
+        
+        setInterval(updateClock, 1000);
+        updateClock();
+        
+        // Scroll animations
+        const scrollElements = document.querySelectorAll('.scroll-animate');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'scrollReveal 0.8s ease forwards';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        scrollElements.forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Touch effects for certificates
+        const certCards = document.querySelectorAll('.cert-card');
+        
+        certCards.forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'translateY(-5px) scale(0.98)';
+                card.style.boxShadow = '0 0 10px var(--neon-pink)';
+            });
+            
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'translateY(-10px) rotateX(5deg)';
+                card.style.boxShadow = '0 0 20px rgba(0, 247, 255, 0.5)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+                card.style.boxShadow = '';
+            });
+        });
+        
+        // Text boom effect for section titles
+        const sectionTitles = document.querySelectorAll('.section-title');
+        
+        sectionTitles.forEach(title => {
+            title.addEventListener('mouseenter', () => {
+                title.style.animation = 'textBoom 0.5s';
+            });
+            
+            title.addEventListener('animationend', () => {
+                title.style.animation = 'textBoom 3s infinite';
+            });
+        });
+        
+        // Matrix rain effect
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        
+        const drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = Math.floor(Math.random() * canvas.height / fontSize);
+        }
+        
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 10, 20, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#00ff41';
+            ctx.font = `${fontSize}px monospace`;
+            
+            for (let i = 0; i < drops.length; i++) {
+                const text = String.fromCharCode(0x30A0 + Math.random() * 96);
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                
+                drops[i]++;
+            }
+        }
+        
+        setInterval(drawMatrix, 50);
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
